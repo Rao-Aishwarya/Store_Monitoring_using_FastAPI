@@ -39,9 +39,9 @@ source venv/bin/activate
 ## Add CSV file
 Place your CSV files in the ```csv_files``` directory:
 
-store_status.csv - Contains store activity data
-business_hours.csv - Contains store business hours
-store_timezone.csv - Contains store timezones
+1. store_status.csv - Contains store activity data
+2. business_hours.csv - Contains store business hours
+3. store_timezone.csv - Contains store timezones
 
 ## Configure Alembic (Optional)
 - Install package alembic (for database migrations)
