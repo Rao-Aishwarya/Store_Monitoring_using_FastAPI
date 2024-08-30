@@ -1,5 +1,62 @@
 # Report generation for store monitoring using FastAPI, SQLAlchemy and SQLite
 
+This repository contains a FastAPI application for monitoring store uptime and downtime based on pre-uploaded CSV files. The application uses SQLite for local storage and provides endpoints to generate and retrieve reports on store activity.
+
+## Table of Contents
+- [Setup](#setup)
+- [Running the Application](#running-the-application)
+- [Problem Statement](#Problem statement)
+
+# Setup
+## Prerequisites
+Ensure you have the following software installed:
+
+- Python 3.8 or higher
+- pip (Python package installer)
+- Git
+- uvicorn
+- sqlalchemy
+```pip install uvicorn pymysql fastapi sqlalchemy```
+
+## Installation
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/Rao-Aishwarya/Store_Monitoring_using_FastAPI.git
+   cd your-repository
+
+## Setup Virtual Environment
+### Create and activate a virtual environment
+1. On macOS/Linux
+```
+python3 -m venv venv
+source venv/bin/activate
+```
+
+## Add CSV file
+Place your CSV files in the ```csv_files``` directory:
+
+store_status.csv - Contains store activity data
+business_hours.csv - Contains store business hours
+store_timezone.csv - Contains store timezones
+
+## Configure Alembic (Optional)
+- Install package alembic (for database migrations)
+- Initialize it
+- Create initial migration
+- Apply migrations
+```pip install alembic```
+```alembic init alembic```
+```alembic revision --autogenerate -m "Initial migration"```
+```alembic upgrade head```
+
+## Running the application
+1. Start the FastAPI Server
+```uvicorn main:app --reload```
+
+2. Check the API Documentation
+Visit [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for interactive API documentation using Swagger UI.
+
 ## Problem statement
 
 Company A monitors several restaurants in the US and needs to monitor if the store is online or not. All restaurants are supposed to be online during their business hours. Due to some unknown reasons, a store might go inactive for a few hours. Restaurant owners want to get a report of the how often this happened in the past.   
@@ -12,9 +69,9 @@ The following data sources contain all the data that is required to achieve this
 
 There are 3 sources of data 
 
-1. We poll every store roughly every hour and have data about whether the store was active or not in a CSV.  The CSV has 3 columns (`store_id, timestamp_utc, status`) where status is active or inactive.  All timestamps are in **UTC**
+1. Every store is polled roughly every hour and have data about whether the store was active or not in a CSV.  The CSV has 3 columns (`store_id, timestamp_utc, status`) where status is active or inactive.  All timestamps are in **UTC**
 
-2. We have the business hours of all the stores - schema of this data is `store_id, dayOfWeek(0=Monday, 6=Sunday), start_time_local, end_time_local`
+2. The business hours of all the stores - schema of this data is `store_id, dayOfWeek(0=Monday, 6=Sunday), start_time_local, end_time_local`
     1. These times are in the **local time zone**
     2. If data is missing for a store, assume it is open 24*7
        
