@@ -44,11 +44,13 @@ store_timezone.csv - Contains store timezones
 - Install package alembic (for database migrations)
 - Initialize it
 - Create initial migration
-- Apply migrations
-```pip install alembic```
-```alembic init alembic```
-```alembic revision --autogenerate -m "Initial migration"```
-```alembic upgrade head```
+- Apply migrations 
+```
+pip install alembic
+alembic init alembic
+alembic revision --autogenerate -m "Initial migration"
+alembic upgrade head
+```
 
 ## Running the application
 1. Start the FastAPI Server
