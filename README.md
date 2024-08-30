@@ -16,7 +16,10 @@ Ensure you have the following software installed:
 - Git
 - uvicorn
 - sqlalchemy
-```pip install uvicorn pymysql fastapi sqlalchemy```
+  
+```
+pip install uvicorn pymysql fastapi sqlalchemy
+```
 
 ## Installation
 1. **Clone the Repository**
