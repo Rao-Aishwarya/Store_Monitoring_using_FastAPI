@@ -5,7 +5,7 @@ This repository contains a FastAPI application for monitoring store uptime and d
 ## Table of Contents
 - [Setup](#setup)
 - [Running the Application](#running-the-application)
-- [Problem Statement](#Problem statement)
+- [Problem Statement](#problem-statement)
 
 # Setup
 ## Prerequisites
